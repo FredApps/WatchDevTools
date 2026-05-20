@@ -9,8 +9,12 @@
         android:roundIcon="@drawable/ic_devtools"
         android:theme="@android:style/Theme.DeviceDefault">
 
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
         <!--
-            Hidden activity. Tile-only app — this activity is not listed in the
+            Hidden activity. Tile-only app - this activity is not listed in the
             launcher, but it's triggered by the tile's buttons to fire the
             Developer options intent and finish immediately.
         -->
@@ -23,7 +27,7 @@
 
         <!--
             Tile carousel shortcut. The user adds this manually via long-press on
-            an existing tile → Add → DevTools (Wear OS doesn't allow third-party
+            an existing tile -> Add -> DevTools (Wear OS doesn't allow third-party
             apps to programmatically place tiles in the carousel).
         -->
         <service

@@ -1,8 +1,12 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
 package com.fredapps.watchdevtools
 
 import android.provider.Settings
 import android.util.Log
-import androidx.concurrent.futures.ResolvableFuture
+import androidx.concurrent.futures.CallbackToFutureAdapter
 import androidx.wear.protolayout.ActionBuilders
 import androidx.wear.protolayout.ColorBuilders.argb
 import androidx.wear.protolayout.DimensionBuilders.dp
@@ -18,7 +22,7 @@ import androidx.wear.tiles.TileBuilders.Tile
 import androidx.wear.tiles.TileService
 import com.google.common.util.concurrent.ListenableFuture
 
-// Bump this string whenever the layout schema changes — it forces the Wear OS
+// Bump this string whenever the layout schema changes - it forces the Wear OS
 // renderer to discard cached visuals and re-fetch from us.
 private const val RESOURCES_VERSION = "4"
 private const val TAG = "DevOptionsTile"
@@ -30,8 +34,8 @@ private const val WHITE = 0xFFFFFFFF.toInt()
 /**
  * Tile with three quick-toggle shortcuts: Dev options (for wireless debugging),
  * Bluetooth settings, and Wi-Fi settings. None of these can actually flip the
- * toggle from a third-party app on modern Android — Bluetooth and Wi-Fi both
- * require user consent — but landing on the right settings page is one tap
+ * toggle from a third-party app on modern Android - Bluetooth and Wi-Fi both
+ * require user consent - but landing on the right settings page is one tap
  * away from the toggle.
  *
  * Each button's [ActionBuilders.LaunchAction] points at the same
@@ -44,8 +48,13 @@ class DevOptionsTileService : TileService() {
         requestParams: RequestBuilders.ResourcesRequest
     ): ListenableFuture<ResourceBuilders.Resources> {
         Log.i(TAG, "onTileResourcesRequest version=${requestParams.version}")
-        return ResolvableFuture.create<ResourceBuilders.Resources>().apply {
-            set(ResourceBuilders.Resources.Builder().setVersion(RESOURCES_VERSION).build())
+        val resources = ResourceBuilders.Resources.Builder()
+            .setVersion(RESOURCES_VERSION)
+            .build()
+
+        return CallbackToFutureAdapter.getFuture { completer ->
+            completer.set(resources)
+            "DevOptionsTileService#onTileResourcesRequest"
         }
     }
 
@@ -101,7 +110,10 @@ class DevOptionsTileService : TileService() {
             )
             .build()
 
-        return ResolvableFuture.create<Tile>().apply { set(tile) }
+        return CallbackToFutureAdapter.getFuture { completer ->
+            completer.set(tile)
+            "DevOptionsTileService#onTileRequest"
+        }
     }
 
     /**
