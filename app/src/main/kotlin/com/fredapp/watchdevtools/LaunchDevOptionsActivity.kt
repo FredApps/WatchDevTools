@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-package com.fredapps.watchdevtools
+package com.fredapp.watchdevtools
 
 import android.app.Activity
 import android.content.ActivityNotFoundException

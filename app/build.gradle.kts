@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.fredapps.watchdevtools"
+    namespace = "com.fredapp.watchdevtools"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.fredapps.watchdevtools"
+        applicationId = "com.fredapp.watchdevtools"
         minSdk = 30
         targetSdk = 35
         versionCode = 1

@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-package com.fredapps.watchdevtools
+package com.fredapp.watchdevtools
 
 import android.provider.Settings
 import android.util.Log
@@ -130,7 +130,7 @@ class DevOptionsTileService : TileService() {
             .setAndroidActivity(
                 ActionBuilders.AndroidActivity.Builder()
                     .setPackageName(packageName)
-                    .setClassName("com.fredapps.watchdevtools.LaunchDevOptionsActivity")
+                    .setClassName("com.fredapp.watchdevtools.LaunchDevOptionsActivity")
                     .addKeyToExtraMapping(
                         LaunchDevOptionsActivity.EXTRA_SETTINGS_ACTION,
                         ActionBuilders.AndroidStringExtra.Builder()

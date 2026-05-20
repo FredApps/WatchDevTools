@@ -59,9 +59,9 @@ Before publishing a release:
 
 ## Package
 
-- **Application ID:** `com.fredapps.watchdevtools`
+- **Application ID:** `com.fredapp.watchdevtools`
 - **Version:** 1.0.0
-- **Namespace:** fredapps
+- **Namespace:** `com.fredapp.watchdevtools`
 
 ## License
 
