@@ -51,3 +51,9 @@ To build and install directly to a connected watch:
 - **Application ID:** `com.fredapps.watchdevtools`
 - **Version:** 0.1.0
 - **Namespace:** fredapps
+
+## License
+
+Copyright (C) 2026 FredApps
+
+WatchDevTools is licensed under the GNU General Public License v3.0. See [LICENSE](LICENSE) for details.
