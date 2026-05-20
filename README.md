@@ -10,6 +10,26 @@ Quick-access Wear OS tile for developer settings. Provides shortcut buttons to D
 
 ## Installation
 
+Download `WatchDevTools-1.0.apk` from the [WatchDevTools 1.0 release](https://github.com/FredApps/WatchDevTools/releases/tag/1.0).
+
+Install it on a Wear OS watch with wireless debugging:
+
+```bash
+adb pair WATCH_IP:PAIRING_PORT
+adb connect WATCH_IP:DEBUG_PORT
+adb install -r WatchDevTools-1.0.apk
+```
+
+If you installed an earlier test build that used the old package name, remove it first:
+
+```bash
+adb uninstall com.fredapps.watchdevtools
+```
+
+The 1.0 release package is `com.fredapp.watchdevtools`.
+
+## Add The Tile
+
 Add the tile to your Wear OS device manually:
 
 1. Long-press on any existing tile in the tile carousel
@@ -33,7 +53,9 @@ To build and install directly to a connected watch:
 
 ## Release Builds
 
-Release APKs/AABs must be signed with your private Android signing key. Keep signing properties and keystores outside git; the repository ignores `local.properties`, `*.keystore`, `*.jks`, `*.apk`, and `*.aab`.
+Release APKs/AABs should be signed with your private Android signing key. Keep signing properties and keystores outside git; the repository ignores `local.properties`, `*.keystore`, `*.jks`, `*.apk`, and `*.aab`.
+
+The GitHub 1.0 APK is debug-signed for direct sideloading from the release page.
 
 Before publishing a release:
 
