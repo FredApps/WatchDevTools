@@ -10,22 +10,16 @@
         android:theme="@android:style/Theme.DeviceDefault">
 
         <!--
-            Launcher activity. NoDisplay theme so it never paints — it just fires
-            the Developer options intent and finishes. On Galaxy Watch 6, there's
-            no third-party-accessible deep link to the Wireless debugging toggle
-            specifically; this lands on the Developer options page where Wireless
-            debugging is one tap away.
+            Hidden activity. Tile-only app — this activity is not listed in the
+            launcher, but it's triggered by the tile's buttons to fire the
+            Developer options intent and finish immediately.
         -->
         <activity
             android:name=".LaunchDevOptionsActivity"
             android:label="@string/launcher_label"
             android:exported="true"
-            android:theme="@android:style/Theme.NoDisplay">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@android:style/Theme.NoDisplay"
+        />
 
         <!--
             Tile carousel shortcut. The user adds this manually via long-press on
