@@ -1,6 +1,6 @@
 # WatchDevTools
 
-Quick-access Wear OS tile for developer settings. Provides shortcut buttons to Developer options, Bluetooth settings, and Wi-Fi settings — all one tap away without navigating through the full settings menu.
+Quick-access Wear OS tile for developer settings. Provides shortcut buttons to Developer options, Bluetooth settings, and Wi-Fi settings — all one swipe away without navigating through the full settings menu.
 
 ## Features
 

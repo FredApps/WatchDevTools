@@ -10,7 +10,7 @@ import androidx.wear.tiles.TileService
 /**
  * No-UI launcher. Fires the Developer options intent and immediately finishes
  * so the user lands directly in Settings → Developer options, where Wireless
- * debugging is one tap away. Falls back to the top-level Settings activity if
+ * debugging is one swipe away. Falls back to the top-level Settings activity if
  * Developer options haven't been unlocked yet (build-number tap × 7).
  *
  * As a side effect, asks the system to re-fetch our tile's content. The Wear
